@@ -1,0 +1,26 @@
+{
+  "name": "bower-list",
+  "authors": [
+    "Sergey Miron <sergey.miron@icloud.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "normalize.css#^4.2.0",
+    "fastclick": "~1.0.6",
+    "jquery": "~2.1.4",
+    "jquery-selectric": "^1.10.1",
+    "jquery.countdown": "^2.1.0"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "sliders",
+  "version": "0.0.1",
+  "description": "Responsive markup",
+  "dependencies": {
+    "bower": "^1.6.5",
+    "grunt": "^1.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "css-mqpacker": "^5.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-newer": "^1.1.1",
+    "grunt-pngquant": "^0.1.8",
+    "grunt-postcss": "^0.8.0",
+    "grunt-real-favicon": "^0.1.6",
+    "grunt-svg-sprite": "^1.3.3",
+    "grunt-svgo": "^0.1.0",
+    "imagemin-pngquant": "^5.0.0",
+    "postcss-flexbugs-fixes": "^2.0.0",
+    "postcss-focus": "^1.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sumovska/sliders.git"
+  },
+  "author": "Squad One",
+  "license": "ISC",
+  "homepage": "http://m1ron.com"
+}
