@@ -20,7 +20,6 @@
     "normalize-css": "normalize.css#^4.2.0",
     "fastclick": "~1.0.6",
     "jquery": "~2.1.4",
-    "jquery-selectric": "^1.10.1",
-    "jquery.countdown": "^2.1.0"
+    "nouislider": "^8.5.1"
   }
 }

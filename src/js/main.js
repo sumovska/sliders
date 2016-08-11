@@ -6,5 +6,4 @@ FastClick.attach(document.body);
 /** On document ready */
 $(document).ready(function() {
 
-
 });

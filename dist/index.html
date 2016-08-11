@@ -16,10 +16,70 @@
 
 <body>
 
+	<div class="wrapper">
+
+		<h1 class="h1">Sliders</h1>
+
+			<div id="slider-gorizontal" class="slider slider-gorizontal"></div>
+
+			<div id="slider-gorizontal" class="slider slider-gorizontal"></div>
+
+			<div id="slider-vertical" class="slider slider-vertical"></div>
+
+			<div id="hover">
+				<div class="item"></div>
+			</div>
+			<div id="hover-val"></div>
+
+	</div>
+
 
 	<script src="js/vendor/jquery.min.js"></script>
 	<script src="js/plugins.js"></script>
 	<script src="js/main.js"></script>
+	<script>
+		$(document).ready(function() {
+
+			/** Slider gorizontal */
+				var _gorizontal = document.getElementById('slider-gorizontal');
+				noUiSlider.create(_gorizontal, {
+					start: 50,
+					connect: false,
+					range: {
+						'min': 0,
+						'max': 100
+					}
+				});
+
+			/** Slider vertical */
+				var _vertical = document.getElementById('slider-vertical');
+				noUiSlider.create(_vertical, {
+					start: 40,
+					orientation: 'vertical',
+					range: {
+						'min': 0,
+						'max': 100
+					}
+				});
+
+			var hoverSlider = document.getElementsById('hover'),
+				field = document.getElementById('hover-val');
+
+			noUiSlider.create(hoverSlider, {
+				start: 20,
+				behaviour: 'hover-snap',
+				range: {
+					'min': 0,
+					'max': 10
+				}
+			});
+
+			hoverSlider.noUiSlider.on('hover', function(value) {
+				field.innerHTML = value;
+			});
+
+		});
+	</script>
 </body>
 
 </html>

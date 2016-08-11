@@ -92,8 +92,7 @@ module.exports = function(grunt) {
                         d.bower + 'jquery/dist/jquery.min.js',
                         d.bower + 'jquery/dist/jquery.min.map',
                         d.bower + 'fastclick/lib/fastclick.js',
-                        d.bower + 'jquery.countdown/dist/jquery.countdown.min.js',
-                        d.bower + 'jquery-selectric/public/jquery.selectric.min.js'
+                        d.bower + 'nouislider/distribute/nouislider.min.js'
                     ],
                     dest: temp.js + 'vendor'
                 }]
@@ -117,9 +116,7 @@ module.exports = function(grunt) {
                     flatten: true,
                     src: [
                         d.bower + 'normalize-css/normalize.css',
-                        d.bower + 'slick-carousel/slick/slick.css',
-                        d.bower + 'magnific-popup/dist/magnific-popup.css',
-                        d.bower + 'jquery-selectric/public/selectric.css'
+                        d.bower + 'nouislider/distribute/nouislider.min.css'
                     ],
                     dest: temp.css + 'vendor'
                 }]
