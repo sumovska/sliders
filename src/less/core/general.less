@@ -1,0 +1,181 @@
+/* ==========================================================================
+   BASE STYLES
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html {
+    height: 100%;
+    font: 16px/20px @font-default;
+    color: @color-black;
+    overflow-x: hidden;
+    background: @color-white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body {
+    min-height: 100%;
+    min-width: @w-mobile-xxs;
+    padding: 0;
+    position: relative;
+    overflow-x: hidden;
+    background: @color-white;
+}
+/* ==========================================================================
+   _TEXT STYLES
+   ========================================================================== */
+p, ul, ol, dl {
+    margin-top: @margin-sm;
+    margin-bottom: @margin-sm;
+    @media @tablet-sm {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+:focus {
+    outline: -webkit-focus-ring-color auto 0;
+}
+a {
+    color: @color-black;
+    outline: none;
+    text-decoration: underline;
+    transition: color @duration;
+    &:hover {
+        outline: none;
+        text-decoration: none;
+    }
+}
+figure {
+    margin: @margin-md 0;
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+audio, canvas, img, video {
+    vertical-align: middle;
+}
+/*** HEADINGS ***/
+h1, .h1 {
+    margin-top: @margin-md;
+    margin-bottom: @margin-md;
+    font: bold 44px/48px @font-heading;
+    color: @color-black;
+    text-transform: uppercase;
+    @media @tablet-sm {
+        margin-top: @margin-lg;
+        margin-bottom: @margin-lg;
+        font-size: 72px;
+        line-height: 76px;
+    }
+}
+h2, .h2 {
+    margin-top: @margin-sm;
+    margin-bottom: @margin-sm;
+    font: bold 27px/25px @font-heading;
+    color: @color-black;
+    text-transform: uppercase;
+    @media @tablet-sm {
+        margin-top: @margin-md;
+        margin-bottom: @margin-md;
+        font-size: 36px;
+        line-height: 40px;
+    }
+}
+h3, .h3 {
+    margin-top: @margin-sm;
+    margin-bottom: @margin-sm;
+    font: bold 22px/26px @font-heading;
+    color: @color-black;
+    text-transform: uppercase;
+    @media @tablet-sm {
+        margin-top: @margin-md;
+        margin-bottom: @margin-md;
+        font-size: 26px;
+        line-height: 30px;
+    }
+}
+h4, .h4 {
+    margin-top: @margin-sm;
+    margin-bottom: @margin-sm;
+    font: bold 21px/25px @font-heading;
+    color: @color-black;
+    text-transform: uppercase;
+    @media @tablet-sm {
+        margin-top: @margin-md;
+        margin-bottom: @margin-md;
+        font-size: 25px;
+        line-height: 30px;
+    }
+    @media @desktop-sm {
+        font-size: 30px;
+        line-height: 36px;
+    }
+}
+h5, .h5 {
+    margin-top: @margin-sm;
+    margin-bottom: @margin-sm;
+    font: bold 17px/19px @font-heading;
+    color: @color-black;
+    text-transform: uppercase;
+    @media @tablet-sm {
+        margin-top: @margin-md;
+        margin-bottom: @margin-md;
+        font-size: 20px;
+        line-height: 24px;
+    }
+}
+h6, .h6 {
+    margin-top: @margin-sm;
+    margin-bottom: @margin-sm;
+    font: bold 16px/20px @font-heading;
+    color: @color-black;
+    text-transform: uppercase;
+    @media @tablet-sm {
+        margin-top: @margin-md;
+        margin-bottom: @margin-md;
+        font-size: 18px;
+        line-height: 22px;
+    }
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    & + p {
+        margin-top: 0;
+    }
+}
+/* ==========================================================================
+   GENERAL STYLES
+   ========================================================================== */
+.hidden {
+    display: none;
+}
+.pseudo {
+    display: block;
+    content: '\0020';
+    overflow: hidden;
+}
+.clearfix {
+    display: table;
+    content: '\0020';
+    clear: both;
+}
+.sprite-holder {
+    display: none;
+}
+/* ==========================================================================
+   CONTAINERS
+   ========================================================================== */
+.wrapper {
+    max-width: @max-width;
+    margin: 0 auto;
+    padding: 0 10px;
+    &:after {
+        .clearfix;
+    }
+    @media @desktop-sm {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

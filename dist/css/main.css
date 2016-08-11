@@ -1,0 +1,370 @@
+/*
+ * Project: Prime Engineering
+ * File: Main styles
+ */
+/* ==========================================================================
+   BASE STYLES
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html {
+  height: 100%;
+  font: 16px/20px Arial, sans-serif;
+  color: #000;
+  overflow-x: hidden;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  min-height: 100%;
+  min-width: 320px;
+  padding: 0;
+  position: relative;
+  overflow-x: hidden;
+  background: #fff;
+}
+/* ==========================================================================
+   _TEXT STYLES
+   ========================================================================== */
+p,
+ul,
+ol,
+dl {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+:focus {
+  outline: -webkit-focus-ring-color auto 0;
+}
+a {
+  color: #000;
+  outline: none;
+  text-decoration: underline;
+  -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+a:hover, a:focus {
+  outline: none;
+  text-decoration: none;
+}
+figure {
+  margin: 30px 0;
+}
+figure img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+audio,
+canvas,
+img,
+video {
+  vertical-align: middle;
+}
+/*** HEADINGS ***/
+h1,
+.h1 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font: bold 44px/48px 'Co Text Corp', Arial, sans-serif;
+  color: #000;
+  text-transform: uppercase;
+}
+h2,
+.h2 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font: bold 27px/25px 'Co Text Corp', Arial, sans-serif;
+  color: #000;
+  text-transform: uppercase;
+}
+h3,
+.h3 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font: bold 22px/26px 'Co Text Corp', Arial, sans-serif;
+  color: #000;
+  text-transform: uppercase;
+}
+h4,
+.h4 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font: bold 21px/25px 'Co Text Corp', Arial, sans-serif;
+  color: #000;
+  text-transform: uppercase;
+}
+h5,
+.h5 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font: bold 17px/19px 'Co Text Corp', Arial, sans-serif;
+  color: #000;
+  text-transform: uppercase;
+}
+h6,
+.h6 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font: bold 16px/20px 'Co Text Corp', Arial, sans-serif;
+  color: #000;
+  text-transform: uppercase;
+}
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p,
+.h1 + p,
+.h2 + p,
+.h3 + p,
+.h4 + p,
+.h5 + p,
+.h6 + p {
+  margin-top: 0;
+}
+/* ==========================================================================
+   GENERAL STYLES
+   ========================================================================== */
+.hidden {
+  display: none;
+}
+.pseudo {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+}
+.clearfix {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+.sprite-holder {
+  display: none;
+}
+/* ==========================================================================
+   CONTAINERS
+   ========================================================================== */
+.wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.wrapper:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+/* ==========================================================================
+   FORMS RESET
+   ========================================================================== */
+form,
+fieldset,
+legend {
+  padding: 0;
+  border: none;
+  margin: 0;
+  display: block;
+}
+[type='text'],
+[type='tel'],
+[type='email'],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 0;
+  display: inline-block;
+  vertical-align: middle;
+  font: 16px / normal Arial, sans-serif;
+  color: #000;
+  background: #fff;
+  box-shadow: inset 3px 1px 2px 0 rgba(0, 0, 0, 0.54), 0 0 0 2px rgba(0, 0, 0, 0.34);
+  border: none;
+  -webkit-transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.form-group [type='text'],
+.form-group [type='tel'],
+.form-group [type='email'],
+.form-group textarea {
+  width: 100%;
+  max-width: 100%;
+}
+textarea {
+  max-width: 550px;
+  height: 118px;
+  resize: none;
+}
+/* noinspection CssInvalidPseudoSelector */
+::-webkit-input-placeholder {
+  color: #707070;
+  opacity: 1;
+}
+::-moz-placeholder {
+  color: #707070;
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  color: #707070;
+  opacity: 1;
+}
+::placeholder {
+  color: #707070;
+  opacity: 1;
+}
+[type='submit'],
+[type='reset'],
+[type='button'],
+button,
+.button {
+  width: 100%;
+  max-width: 286px;
+  padding: 13px 12px 11px;
+  border: none;
+  border-radius: 5px;
+  display: inline-block;
+  font: bold 18px / normal 'Co Text Corp', Arial, sans-serif;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  text-transform: uppercase;
+  background: #ff6a00 url('../img/testimonials/pattern.jpg') 0 0 repeat;
+  box-shadow: 0 3px 0 #8b3c05;
+  text-shadow: 0 2px 0 #8b3c05;
+  -webkit-transition: background-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: background-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+}
+[type='submit']:hover,
+[type='reset']:hover,
+[type='button']:hover,
+button:hover,
+.button:hover,
+[type='submit']:focus,
+[type='reset']:focus,
+[type='button']:focus,
+button:focus,
+.button:focus {
+  text-decoration: none;
+  box-shadow: 0 3px 0 #8b3c05, inset 0 0 4px 4px #ff9a00;
+}
+/* ==========================================================================
+   DEFAULT FORM
+   ========================================================================== */
+.form-group {
+  margin-bottom: 14px;
+}
+.form-group:after {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
+.form-group:last-child {
+  margin-bottom: 0;
+}
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+@media (min-width: 750px) {
+  p,
+  ul,
+  ol,
+  dl {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  h1,
+  .h1 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 72px;
+    line-height: 76px;
+  }
+  h2,
+  .h2 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 36px;
+    line-height: 40px;
+  }
+  h3,
+  .h3 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 26px;
+    line-height: 30px;
+  }
+  h4,
+  .h4 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 25px;
+    line-height: 30px;
+  }
+  h5,
+  .h5 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+  h6,
+  .h6 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  [type='text'],
+  [type='tel'],
+  [type='email'],
+  textarea {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    font-size: 24px;
+  }
+  textarea {
+    height: 180px;
+  }
+  [type='submit'],
+  [type='reset'],
+  [type='button'],
+  button,
+  .button {
+    width: 365px;
+    max-width: none;
+    padding: 16px 12px 12px;
+    font-size: 23px;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+}
+@media (min-width: 1170px) {
+  h4,
+  .h4 {
+    font-size: 30px;
+    line-height: 36px;
+  }
+  .wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/*# sourceMappingURL=maps/main.css.map */
