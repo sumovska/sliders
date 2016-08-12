@@ -1,7 +1,7 @@
 {
   "name": "bower-list",
   "authors": [
-    "Sergey Miron <sergey.miron@icloud.com>"
+    "Natalia Sumovska <natalia.sumovskaya@icloud.com>"
   ],
   "description": "",
   "main": "",
@@ -17,9 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "normalize-css": "normalize.css#^4.2.0",
-    "fastclick": "~1.0.6",
-    "jquery": "~2.1.4",
-    "nouislider": "^8.5.1"
+    "nouislider": "^8.5.1",
+    "wnumb": "^1.0.4"
   }
 }

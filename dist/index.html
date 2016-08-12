@@ -5,80 +5,53 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Sliders</title>
-	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="format-detection" content="telephone=no">
-
-	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/plugins.css">
-	<link rel="stylesheet" href="css/main.css">
+	<link href="css/nouislider.min.css" rel="stylesheet">
+	<link href="css/slider.css" rel="stylesheet">
+	<script src="js/wNumb.js"></script>
+	<script src="js/nouislider.min.js"></script>
+	<script src="js/slider.js"></script>
 </head>
 
 <body>
 
-	<div class="wrapper">
-
-		<h1 class="h1">Sliders</h1>
-
-			<div id="slider-gorizontal" class="slider slider-gorizontal"></div>
-
-			<div id="slider-gorizontal" class="slider slider-gorizontal"></div>
-
-			<div id="slider-vertical" class="slider slider-vertical"></div>
-
-			<div id="hover">
-				<div class="item"></div>
-			</div>
-			<div id="hover-val"></div>
-
-	</div>
-
-
-	<script src="js/vendor/jquery.min.js"></script>
-	<script src="js/plugins.js"></script>
-	<script src="js/main.js"></script>
+	<div id="slider-1" class="slider"></div>
 	<script>
-		$(document).ready(function() {
+		var sliders = [],
+			temp;
 
-			/** Slider gorizontal */
-				var _gorizontal = document.getElementById('slider-gorizontal');
-				noUiSlider.create(_gorizontal, {
-					start: 50,
-					connect: false,
-					range: {
-						'min': 0,
-						'max': 100
-					}
-				});
+		/** Slider 1 */
+		temp = noUiSlider.create(document.getElementById('slider-1'), {
+			start: 50,
+			tooltips: [wNumb({
+				decimals: 0,
+				prefix: '$'
+			})],
+			range: {
+				'min': 0,
+				'max': 100
+			}
+		})
+		sliders.push(temp);
+	</script>
 
-			/** Slider vertical */
-				var _vertical = document.getElementById('slider-vertical');
-				noUiSlider.create(_vertical, {
-					start: 40,
-					orientation: 'vertical',
-					range: {
-						'min': 0,
-						'max': 100
-					}
-				});
 
-			var hoverSlider = document.getElementsById('hover'),
-				field = document.getElementById('hover-val');
-
-			noUiSlider.create(hoverSlider, {
-				start: 20,
-				behaviour: 'hover-snap',
-				range: {
-					'min': 0,
-					'max': 10
-				}
-			});
-
-			hoverSlider.noUiSlider.on('hover', function(value) {
-				field.innerHTML = value;
-			});
-
-		});
+	<div id="slider-2" class="slider"></div>
+	<script>
+		/** Slider 2 */
+		temp = noUiSlider.create(document.getElementById('slider-2'), {
+			start: 40,
+			orientation: 'vertical',
+			tooltips: [wNumb({
+				decimals: 0,
+				postfix: ' &#x2103;'
+			})],
+			range: {
+				'min': 0,
+				'max': 100,
+			}
+		})
+		sliders.push(temp);
 	</script>
 </body>
 

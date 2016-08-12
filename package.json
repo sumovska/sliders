@@ -33,8 +33,5 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:sumovska/sliders.git"
-  },
-  "author": "Squad One",
-  "license": "ISC",
-  "homepage": "http://m1ron.com"
+  }
 }

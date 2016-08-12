@@ -83,18 +83,16 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: src.js,
-                    src: 'main.js',
+                    src: 'slider.js',
                     dest: temp.js
                 }, {
                     expand: true,
                     flatten: true,
                     src: [
-                        d.bower + 'jquery/dist/jquery.min.js',
-                        d.bower + 'jquery/dist/jquery.min.map',
-                        d.bower + 'fastclick/lib/fastclick.js',
+                        d.bower + 'wnumb/wNumb.js',
                         d.bower + 'nouislider/distribute/nouislider.min.js'
                     ],
-                    dest: temp.js + 'vendor'
+                    dest: temp.js
                 }]
             },
             js_dist: {
@@ -103,11 +101,6 @@ module.exports = function(grunt) {
                     cwd: temp.js,
                     src: '*.js',
                     dest: dist.js
-                }, {
-                    expand: true,
-                    cwd: temp.js + 'vendor',
-                    src: '*.min.*',
-                    dest: dist.js + 'vendor',
                 }]
             },
             css_temp: {
@@ -115,23 +108,17 @@ module.exports = function(grunt) {
                     expand: true,
                     flatten: true,
                     src: [
-                        d.bower + 'normalize-css/normalize.css',
                         d.bower + 'nouislider/distribute/nouislider.min.css'
                     ],
-                    dest: temp.css + 'vendor'
+                    dest: temp.css
                 }]
             },
             css_dist: {
                 files: [{
                     expand: true,
                     flatten: true,
-                    src: [temp.css + 'normalize.css', temp.css + 'plugins.css'],
+                    src: temp.css + '*.css',
                     dest: dist.css
-                }, {
-                    expand: true,
-                    flatten: true,
-                    src: temp.css + 'vendor/*.min.css',
-                    dest: dist.css + 'vendor'
                 }]
             },
             img_temp: {
@@ -184,19 +171,7 @@ module.exports = function(grunt) {
         // Minify CSS
         cssmin: {
             default: {
-                files: [{
-                    expand: true,
-                    cwd: temp.css + 'vendor',
-                    src: ['*.css', '!normalize.css'],
-                    dest: temp.css + 'vendor',
-                    ext: '.min.css'
-                }, {
-                    expand: true,
-                    cwd: temp.css + 'vendor',
-                    src: 'normalize.css',
-                    dest: temp.css,
-                    ext: '.css'
-                }]
+                files: []
             }
         },
 
@@ -222,20 +197,10 @@ module.exports = function(grunt) {
                 separator: '\n\n'
             },
             css: {
-                files: [{
-                    src: temp.css + 'vendor/*.min.css',
-                    dest: temp.css + 'plugins.css'
-                }]
+                files: []
             },
             js: {
-                files: [{
-                    src: [
-                        src.js + 'plugins.js',
-                        temp.js + 'vendor/*.min.js',
-                        '!' + temp.js + 'vendor/jquery.min.js'
-                    ],
-                    dest: temp.js + 'plugins.js'
-                }]
+                files: []
             }
         },
 
@@ -245,7 +210,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: src.less,
-                    src: ['main.less'],
+                    src: ['slider.less'],
                     dest: temp.css,
                     ext: ".css"
                 }]
@@ -255,10 +220,6 @@ module.exports = function(grunt) {
         // Post CSS
         postcss: {
             options: {
-                map: {
-                    inline: false,
-                    annotation: dist.css + '/maps/'
-                },
                 processors: [
                     require('postcss-focus'),
                     require('postcss-flexbugs-fixes'),
@@ -274,7 +235,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: temp.css,
-                    src: ['main.css'],
+                    src: ['slider.css'],
                     dest: dist.css
                 }]
             }
@@ -353,7 +314,7 @@ module.exports = function(grunt) {
                     design: {
                         ios: {
                             pictureAspect: 'backgroundAndMargin',
-                            backgroundColor: '#ff9700',
+                            backgroundColor: '#ffffff',
                             margin: '18%',
                             assets: {
                                 ios6AndPriorIcons: false,
@@ -365,7 +326,7 @@ module.exports = function(grunt) {
                         desktopBrowser: {},
                         windows: {
                             pictureAspect: 'whiteSilhouette',
-                            backgroundColor: '#ff9700',
+                            backgroundColor: '#ffffff',
                             onConflict: 'override',
                             assets: {
                                 windows80Ie10Tile: false,
@@ -379,7 +340,7 @@ module.exports = function(grunt) {
                         },
                         androidChrome: {
                             pictureAspect: 'noChange',
-                            themeColor: '#ff9700',
+                            themeColor: '#ffffff',
                             manifest: {
                                 name: 'Prime',
                                 display: 'standalone',
@@ -394,7 +355,7 @@ module.exports = function(grunt) {
                         },
                         safariPinnedTab: {
                             pictureAspect: 'silhouette',
-                            themeColor: '#ff9700'
+                            themeColor: '#ffffff'
                         }
                     },
                     settings: {
@@ -419,7 +380,7 @@ module.exports = function(grunt) {
                 tasks: ["css:process"]
             },
             js: {
-                files: [src.js + "main.js"],
+                files: [src.js + "slider.js"],
                 tasks: ["js:process"]
             },
             img: {
@@ -450,23 +411,23 @@ module.exports = function(grunt) {
 
     // Grunt tasks
     grunt.registerTask("default", ["clean:all", "start", "watch"]);
-    grunt.registerTask("start", ["static:start", "img:start", "svg:start", "css:start", "js:start", "favicon:process", "clean:temp"]);
+    grunt.registerTask("start", ["static:start", /*"img:start", "svg:start", */ "css:start", "js:start", /* "favicon:process", "clean:temp"*/ ]);
 
     grunt.registerTask("static", ["static:start"]);
     grunt.registerTask("static:start", ["copy:static"]);
     grunt.registerTask("static:process", ["newer:copy:static"]);
 
     grunt.registerTask("css", ["css:start"]);
-    grunt.registerTask("css:start", ["clean:css", "copy:css_temp", "css:process", "cssmin:default", "concat:css", "copy:css_dist"]);
+    grunt.registerTask("css:start", ["clean:css", "copy:css_temp", "css:process", "copy:css_dist"]);
     grunt.registerTask("css:process", ["less:default", "postcss:default"]);
 
     grunt.registerTask("js", ["js:start"]);
-    grunt.registerTask("js:start", ["clean:js", "copy:js_temp", "uglify:default", "concat:js", "copy:js_dist"]);
+    grunt.registerTask("js:start", ["clean:js", "copy:js_temp", /*"uglify:default", "concat:js",*/ "copy:js_dist"]);
     grunt.registerTask("js:process", ["newer:copy:js_temp", "newer:copy:js_dist"]);
 
     grunt.registerTask("img", ["img:start"]);
-    grunt.registerTask("img:start", ["clean:img", "copy:img_temp",/* "pngquant:default", */"copy:img_dist"]);
-    grunt.registerTask("img:process", ["newer:copy:img_temp", /*"newer:pngquant:default", */"newer:copy:img_dist"]);
+    grunt.registerTask("img:start", ["clean:img", "copy:img_temp", "pngquant:default", "copy:img_dist"]);
+    grunt.registerTask("img:process", ["newer:copy:img_temp", "newer:pngquant:default", "newer:copy:img_dist"]);
 
     grunt.registerTask("svg", ["svg:start"]);
     grunt.registerTask("svg:start", ["clean:svg", "copy:svg_temp", "svgo:default", "svg_sprite:default", "copy:svg_dist", "clean:svg_sprite"]);
