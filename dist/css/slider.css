@@ -1,14 +1,16 @@
 .slider {
   max-width: 450px;
-  margin: 50px auto;
+  margin: 50px 25px;
   font-family: Helvetica, sans-serif;
 }
 .slider.noUi-horizontal {
-  height: 20px;
+  height: 14px;
 }
 .slider.noUi-vertical {
-  width: 20px;
-  height: 300px;
+  width: 14px;
+  height: 400px;
+  margin: 50px 25px;
+  display: inline-block;
 }
 .slider.noUi-background {
   border: none;
@@ -19,7 +21,7 @@
   box-shadow: inset 1px 0 3px rgba(0, 0, 0, 0.35);
 }
 .slider.noUi-target {
-  border-radius: 10px;
+  border-radius: 7px;
   backface-visibility: hidden;
 }
 .slider .noUi-origin {
@@ -32,7 +34,7 @@
   width: 30px;
   height: 30px;
   left: -15px;
-  top: -5px;
+  top: -8px;
   border: none;
   border-radius: 50%;
   position: relative;
@@ -43,7 +45,7 @@
   cursor: pointer;
 }
 .noUi-vertical.slider .noUi-handle {
-  left: -5px;
+  left: -8px;
   top: -15px;
 }
 .slider .noUi-handle:hover:before,
@@ -110,6 +112,67 @@
   left: 50%;
   top: 100%;
   -webkit-transform: rotate(360deg);
+}
+.slider .noUi-pips-horizontal {
+  height: 20px;
+  padding: 3px 0 0;
+  cursor: default;
+  user-select: none;
+}
+.slider .noUi-pips-vertical {
+  width: 20px;
+  padding: 0 0 0 3px;
+  cursor: default;
+  user-select: none;
+}
+.slider .noUi-marker-horizontal.noUi-marker {
+  width: 1px;
+  border-color: #ccc;
+}
+.slider .noUi-marker-horizontal.noUi-marker-sub {
+  height: 5px;
+  background: #ccc;
+}
+.slider .noUi-marker-horizontal.noUi-marker-large {
+  height: 7px;
+  margin-top: -2px;
+}
+.slider .noUi-marker-vertical.noUi-marker {
+  height: 1px;
+  border-color: #ccc;
+}
+.slider .noUi-marker-vertical.noUi-marker-sub {
+  width: 5px;
+  background: #ccc;
+}
+.slider .noUi-marker-vertical.noUi-marker-large {
+  width: 7px;
+  margin-left: -2px;
+}
+.slider .noUi-value-horizontal,
+.slider .noUi-value-vertical {
+  font-size: 10px;
+  line-height: 12px;
+  color: #ccc;
+}
+.slider .noUi-value-horizontal {
+  transform: translate3d(-50%, 5px, 0);
+}
+.slider .noUi-value-horizontal.noUi-value-sub {
+  display: none;
+}
+.slider .noUi-value-horizontal.noUi-value-sub[style^='left: 50.000'] {
+  display: block;
+}
+.slider .noUi-value-vertical {
+  margin-top: -1px;
+  padding-left: 7px;
+}
+.slider .noUi-value-vertical.noUi-value-sub {
+  display: none;
+}
+.slider .noUi-value-vertical.noUi-value-sub[style^='top: 50.000'] {
+  display: block !important;
 }
 .noUi-horizontal.slider .noUi-handle-lower .noUi-tooltip {
   margin-bottom: 8px;

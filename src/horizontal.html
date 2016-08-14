@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Sliders</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/nouislider.min.css" rel="stylesheet">
+	<link href="css/slider.css" rel="stylesheet">
+	<script src="js/wNumb.js"></script>
+	<script src="js/nouislider.min.js"></script>
+	<script src="js/slider.js"></script>
+</head>
+
+<body>
+
+	<div id="variable1-range" class="slider"></div>
+	<script>
+		var sliders = [],
+			temp;
+
+		/** Slider 1 */
+		temp = noUiSlider.create(document.getElementById('variable1-range'), {
+			start: 15,
+			step: 5,
+			tooltips: [wNumb({
+				decimals: 0,
+				postfix: 's'
+			})],
+			pips: {
+				mode: 'values',
+				density: 10,
+				values: [10, 15, 20]
+			},
+			range: {
+				'min': 10,
+				'max': 20
+			}
+		})
+		sliders.push(temp);
+	</script>
+
+
+	<div id="variable2-range" class="slider"></div>
+	<script>
+		/** Slider 2 */
+		temp = noUiSlider.create(document.getElementById('variable2-range'), {
+			start: 20,
+			step: 5,
+			tooltips: [wNumb({
+				decimals: 0,
+				postfix: '&#x2103;'
+			})],
+			pips: {
+				mode: 'values',
+				density: 5,
+				values: [0, 50, 100]
+			},
+			range: {
+				'min': 0,
+				'max': 100,
+			}
+		})
+		sliders.push(temp);
+	</script>
+
+	<div id="variable3-range" class="slider"></div>
+	<script>
+		/** Slider 3 */
+		temp = noUiSlider.create(document.getElementById('variable3-range'), {
+			start: 0,
+			step: 0.5,
+			//orientation: 'vertical',
+			tooltips: [wNumb({
+				decimals: 1,
+				postfix: 'L'
+			})],
+			pips: {
+				mode: 'values',
+				density: 50,
+				values: [0, 1]
+			},
+			range: {
+				'min': 0,
+				'max': 1,
+			}
+		})
+		sliders.push(temp);
+	</script>
+
+
+	<div id="variable4-range" class="slider"></div>
+	<script>
+		var sliders = [],
+			temp;
+
+		/** Slider 1 */
+		temp = noUiSlider.create(document.getElementById('variable4-range'), {
+			start: 8,
+			step: 2,
+			tooltips: [wNumb({
+				decimals: 0,
+				postfix: 's'
+			})],
+			pips: {
+				mode: 'values',
+				density: 25,
+				values: [6, 8, 10]
+			},
+			range: {
+				'min': 6,
+				'max': 10
+			}
+		})
+		sliders.push(temp);
+	</script>
+
+</body>
+
+</html>

@@ -8,17 +8,20 @@
 
 .slider {
     max-width: @max-width;
-    margin: 50px auto;
+    margin: 50px 25px;
     font-family: Helvetica, sans-serif;
+
 
     &.noUi {
         &-horizontal {
-            height: 20px;
+            height: 14px;
         }
 
         &-vertical {
-            width: 20px;
-            height: 300px;
+            width: 14px;
+            height: 400px;
+            margin: 50px 25px;
+            display: inline-block;
         }
 
         &-background {
@@ -31,7 +34,7 @@
         }
 
         &-target {
-            border-radius: 10px;
+            border-radius: 7px;
             backface-visibility: hidden;
         }
     }
@@ -47,7 +50,7 @@
             width: 30px;
             height: 30px;
             left: -15px;
-            top: -5px;
+            top: -8px;
             border: none;
             border-radius: 50%;
             position: relative;
@@ -58,7 +61,7 @@
             cursor: pointer;
 
             .noUi-vertical& {
-                left: -5px;
+                left: -8px;
                 top: -15px;
             }
 
@@ -130,6 +133,80 @@
                 left: 50%;
                 top: 100%;
                 -webkit-transform: rotate(360deg);
+            }
+        }
+
+        &-pips {
+            &-horizontal {
+                height: 20px;
+                padding: 3px 0 0;
+                cursor: default;
+                user-select: none;
+            }
+            &-vertical {
+                width: 20px;
+                padding: 0 0 0 3px;
+                cursor: default;
+                user-select: none;
+            }
+        }
+
+        &-marker {
+            &-horizontal {
+                &.noUi-marker {
+                    width: 1px;
+                    border-color: @color-gray;
+                    &-sub {
+                        height: 5px;
+                        background: @color-gray;
+                    }
+                    &-large {
+                        height: 7px;
+                        margin-top: -2px;
+                    }
+                }
+            }
+            &-vertical {
+                &.noUi-marker {
+                    height: 1px;
+                    border-color: @color-gray;
+                    &-sub {
+                        width: 5px;
+                        background: @color-gray;
+                    }
+                    &-large {
+                        width: 7px;
+                        margin-left: -2px;
+                    }
+                }
+            }
+        }
+
+        &-value {
+            &-horizontal, &-vertical {
+                font-size: 10px;
+                line-height: 12px;
+                color: @color-gray;
+            }
+            &-horizontal {
+                transform: translate3d(-50%, 5px, 0);
+                &.noUi-value-sub {
+                    display: none;
+                    &[style^='left: 50.000'] {
+                        display: block;
+                    }
+                }
+            }
+            &-vertical {
+                margin-top: -1px;
+                padding-left: 7px;
+                //transform: translate3d(-50%, 5px, 0);
+                &.noUi-value-sub {
+                    display: none;
+                    &[style^='top: 50.000'] {
+                        display: block !important;
+                    }
+                }
             }
         }
 
