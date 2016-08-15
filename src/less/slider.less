@@ -2,15 +2,61 @@
 @easing: cubic-bezier(.645, .045, .355, 1);
 @duration: .3s @easing;
 @color-gray: #ccc;
+@color-gray-darkest: #333;
+@color-gray-dark: #999;
 @color-gray-light: #eee;
 @color-white: #fff;
 @color-black: #000;
 
 .slider {
-    max-width: @max-width;
-    margin: 50px 25px;
-    font-family: Helvetica, sans-serif;
+    &-space {
+        margin: 80px 60px 0 60px;
+        font-family: Helvetica, sans-serif;
+        cursor: default;
+        user-select: none;
 
+        .for {
+            margin-right: 15px;
+            display: inline-block;
+            vertical-align: middle;
+            font: 14px Helvetica, sans-serif;
+            color: @color-gray-darkest;
+        }
+
+        .input {
+            width: 40px;
+            padding: 3px 5px;
+            margin-left: 15px;
+            display: inline-block;
+            vertical-align: middle;
+            font: 14px Helvetica, sans-serif;
+            color: @color-gray-darkest;
+            outline: none;
+        }
+
+        &-vertical {
+            margin: 60px 0 60px 80px;
+            display: inline-block;
+
+            .for {
+                margin: 0 0 20px;
+                display: block;
+                text-align: center;
+            }
+
+            .input {
+                margin: 20px auto 0;
+                display: block;
+                text-align: center;
+            }
+        }
+    }
+
+    & {
+        width: @max-width;
+        display: inline-block;
+        vertical-align: middle;
+    }
 
     &.noUi {
         &-horizontal {
@@ -20,13 +66,14 @@
         &-vertical {
             width: 14px;
             height: 400px;
-            margin: 50px 25px;
-            display: inline-block;
+            margin: 0 auto;
+            display: block;
+            left: -5px;
         }
 
         &-background {
             border: none;
-            background: @color-gray;
+            background: @color-gray-light;
             box-shadow: inset 0 1px 3px rgba(0, 0, 0, .35);
             &.noUi-vertical {
                 box-shadow: inset 1px 0 3px rgba(0, 0, 0, .35);
@@ -46,6 +93,7 @@
             box-shadow: inset 0 1px 3px rgba(0, 0, 0, .35);
             backface-visibility: hidden;
         }
+
         &-handle {
             width: 30px;
             height: 30px;
@@ -155,28 +203,30 @@
             &-horizontal {
                 &.noUi-marker {
                     width: 1px;
-                    border-color: @color-gray;
+                    background: @color-gray-dark;
                     &-sub {
                         height: 5px;
-                        background: @color-gray;
+                        background: @color-gray-dark;
                     }
                     &-large {
                         height: 7px;
                         margin-top: -2px;
+                        background: @color-gray-dark;
                     }
                 }
             }
             &-vertical {
                 &.noUi-marker {
                     height: 1px;
-                    border-color: @color-gray;
+                    background: @color-gray-dark;
                     &-sub {
                         width: 5px;
-                        background: @color-gray;
+                        background: @color-gray-dark;
                     }
                     &-large {
                         width: 7px;
                         margin-left: -2px;
+                        background: @color-gray-dark;
                     }
                 }
             }
@@ -184,9 +234,9 @@
 
         &-value {
             &-horizontal, &-vertical {
-                font-size: 10px;
-                line-height: 12px;
-                color: @color-gray;
+                font-size: 13px;
+                line-height: 18px;
+                color: @color-gray-dark;
             }
             &-horizontal {
                 transform: translate3d(-50%, 5px, 0);
@@ -206,6 +256,14 @@
                     &[style^='top: 50.000'] {
                         display: block !important;
                     }
+                }
+            }
+            span {
+                display: none;
+            }
+            &:last-child {
+                span {
+                    display: inline;
                 }
             }
         }
