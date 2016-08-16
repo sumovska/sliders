@@ -10,180 +10,179 @@
 	<link href="css/slider.css" rel="stylesheet">
 	<script src="js/wNumb.js"></script>
 	<script src="js/nouislider.min.js"></script>
-	<script>
-		var sliders = [];
-	</script>
 </head>
 
 <body>
 
-	<div id="Slider1" class="slider-space">
-		<label class="for">Variable1:</label>
-		<div class="slider"></div>
-		<input class="input" type="text" value="" disabled>
+	<div class="sliders">
+		<div id="Slider1" class="slider-space">
+			<label class="for">Variable1:</label>
+			<div class="slider"></div>
+		</div>
+
+		<div id="Slider2" class="slider-space">
+			<label class="for">Variable2:</label>
+			<div class="slider"></div>
+		</div>
+
+		<div id="Slider3" class="slider-space">
+			<label class="for">Variable3:</label>
+			<div class="slider"></div>
+		</div>
+
+		<div id="Slider4" class="slider-space">
+			<label class="for">Variable4:</label>
+			<div class="slider"></div>
+		</div>
+
+		<div class="clearfix"></div>
+		<button class="submit" type="submit">Choose the values</button>
+
+		<div class="results">
+			<p>Variable1 chosen is : <span id="Slider1-result" class="value"></span></p>
+			<p>Variable2 chosen is : <span id="Slider2-result" class="value"></span></p>
+			<p>Variable3 chosen is : <span id="Slider3-result" class="value"></span></p>
+			<p>Variable4 chosen is : <span id="Slider4-result" class="value"></span></p>
+		</div>
+
 		<script>
-			(function() {
-				var space = document.getElementById('Slider1'),
+			/** Slider creation function (slider id, noUIslider configration) */
+			function createSlider(id, config) {
+				var space = document.getElementById(id),
 					slider = space.getElementsByClassName('slider')[0],
-					input = space.getElementsByClassName('input')[0];
-				slider = noUiSlider.create(slider, {
-					start: 15,
-					step: 5,
-					range: {
-						'min': 10,
-						'max': 20
-					},
-					format: wNumb({
-						decimals: 0,
-						postfix: 's'
-					}),
-					tooltips: [wNumb({
-						decimals: 0,
-						postfix: 's'
-					})],
-					pips: {
-						mode: 'values',
-						density: 10,
-						values: [10, 15, 20],
-						format: wNumb({
-							decimals: 0,
-							postfix: '<span>s</span>'
-						})
-					}
-				})
+					r = space.id + '-result';
+				var result = document.getElementById(r);
+				slider = noUiSlider.create(slider, config)
 				slider.on('update', function(values, handle) {
-					input.value = values[handle];
+					result.innerHTML = values[handle];
 				});
 				sliders.push(slider);
-			})();
-		</script>
-	</div>
+			};
 
-	<div id="Slider2" class="slider-space">
-		<label class="for">Variable2:</label>
-		<div class="slider"></div>
-		<input class="input" type="text" value="" disabled>
-		<script>
-			(function() {
-				var space = document.getElementById('Slider2'),
-					slider = space.getElementsByClassName('slider')[0],
-					input = space.getElementsByClassName('input')[0];
-				slider = noUiSlider.create(slider, {
-					start: 20,
-					step: 5,
-					range: {
-						'min': 0,
-						'max': 100
-					},
+			/** Getting and showing values of sliders */
+			function chooseValues() {
+				results.classList.add('visible');
+				sliders.forEach(function(entry) {
+					console.log(index);
+					document.getElementById()
+				});
+			}
+
+			var sliders = [],
+				container = document.getElementsByClassName('sliders')[0],
+				results = container.getElementsByClassName('results')[0],
+				submit = container.getElementsByClassName('submit')[0];
+
+			submit.addEventListener('click', chooseValues);
+
+			/** Slider1 init */
+			createSlider('Slider1', {
+				start: 15,
+				step: 5,
+				range: {
+					'min': 10,
+					'max': 20
+				},
+				format: wNumb({
+					decimals: 0,
+					postfix: 's'
+				}),
+				tooltips: [wNumb({
+					decimals: 0,
+					postfix: 's'
+				})],
+				pips: {
+					mode: 'values',
+					density: 10,
+					values: [10, 15, 20],
 					format: wNumb({
 						decimals: 0,
-						postfix: '℃'
-					}),
-					tooltips: [wNumb({
-						decimals: 0,
-						postfix: '&#x2103;'
-					})],
-					pips: {
-						mode: 'values',
-						density: 5,
-						values: [0, 50, 100],
-						format: wNumb({
-							decimals: 0,
-							postfix: '<span>&#x2103;</span>'
-						})
-					}
-				})
-				slider.on('update', function(values, handle) {
-					input.value = values[handle];
-				});
-				sliders.push(slider);
-			})();
-		</script>
-	</div>
+						postfix: '<span>s</span>'
+					})
+				}
+			});
 
-	<div id="Slider3" class="slider-space">
-		<label class="for">Variable3:</label>
-		<div class="slider"></div>
-		<input class="input" type="text" value="" disabled>
-		<script>
-			(function() {
-				var space = document.getElementById('Slider3'),
-					slider = space.getElementsByClassName('slider')[0],
-					input = space.getElementsByClassName('input')[0];
-				slider = noUiSlider.create(slider, {
-					start: 0,
-					step: 0.5,
-					range: {
-						'min': 0,
-						'max': 1
-					},
-					format: wNumb({
-						postfix: 'L'
-					}),
-					tooltips: [wNumb({
-						decimals: 1,
-						postfix: 'L'
-					})],
-					pips: {
-						mode: 'values',
-						density: 50,
-						values: [0, 1],
-						format: wNumb({
-							decimals: 0,
-							postfix: '<span>L</span>'
-						})
-					}
-				})
-				slider.on('update', function(values, handle) {
-					input.value = values[handle];
-				});
-				sliders.push(slider);
-			})();
-		</script>
-	</div>
-
-	<div id="Slider4" class="slider-space">
-		<label class="for">Variable4:</label>
-		<div class="slider"></div>
-		<input class="input" type="text" value="" disabled>
-		<script>
-			(function() {
-				var space = document.getElementById('Slider4'),
-					slider = space.getElementsByClassName('slider')[0],
-					input = space.getElementsByClassName('input')[0];
-				slider = noUiSlider.create(slider, {
-					start: 8,
-					step: 2,
-					range: {
-						'min': 6,
-						'max': 10
-					},
+			/** Slider2 init */
+			createSlider('Slider2', {
+				start: 20,
+				step: 5,
+				range: {
+					'min': 0,
+					'max': 100
+				},
+				format: wNumb({
+					decimals: 0,
+					postfix: '℃'
+				}),
+				tooltips: [wNumb({
+					decimals: 0,
+					postfix: '&#x2103;'
+				})],
+				pips: {
+					mode: 'values',
+					density: 5,
+					values: [0, 50, 100],
 					format: wNumb({
 						decimals: 0,
-						postfix: 'm'
-					}),
-					tooltips: [wNumb({
+						postfix: '<span>&#x2103;</span>'
+					})
+				}
+			});
+
+			/** Slider3 init */
+			createSlider('Slider3', {
+				start: 0,
+				step: 0.5,
+				range: {
+					'min': 0,
+					'max': 1
+				},
+				format: wNumb({
+					postfix: 'L'
+				}),
+				tooltips: [wNumb({
+					decimals: 1,
+					postfix: 'L'
+				})],
+				pips: {
+					mode: 'values',
+					density: 50,
+					values: [0, 1],
+					format: wNumb({
 						decimals: 0,
-						postfix: 'm'
-					})],
-					pips: {
-						mode: 'values',
-						density: 25,
-						values: [6, 8, 10],
-						format: wNumb({
-							decimals: 0,
-							postfix: '<span>m</span>'
-						})
-					}
-				})
-				slider.on('update', function(values, handle) {
-					input.value = values[handle];
-				});
-				sliders.push(slider);
-			})();
+						postfix: '<span>L</span>'
+					})
+				}
+			});
+
+			/** Slider4 init */
+			createSlider('Slider4', {
+				start: 8,
+				step: 2,
+				range: {
+					'min': 6,
+					'max': 10
+				},
+				format: wNumb({
+					decimals: 0,
+					postfix: 'm'
+				}),
+				tooltips: [wNumb({
+					decimals: 0,
+					postfix: 'm'
+				})],
+				pips: {
+					mode: 'values',
+					density: 25,
+					values: [6, 8, 10],
+					format: wNumb({
+						decimals: 0,
+						postfix: '<span>m</span>'
+					})
+				}
+			});
 		</script>
 	</div>
-
 </body>
 
 </html>
