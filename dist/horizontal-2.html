@@ -14,7 +14,7 @@
 
 <body>
 
-	<div class="sliders vertical">
+	<div class="sliders">
 		<div id="Slider1" class="slider-space">
 			<label class="for">Variable1:</label>
 			<div class="slider"></div>
@@ -36,7 +36,8 @@
 		</div>
 
 		<div class="clearfix"></div>
-		<div class="results visible">
+		<button class="submit" type="submit">Choose the values</button>
+		<div class="results">
 			<p>Variable1 chosen is : <span id="Slider1-result" class="value"></span></p>
 			<p>Variable2 chosen is : <span id="Slider2-result" class="value"></span></p>
 			<p>Variable3 chosen is : <span id="Slider3-result" class="value"></span></p>
@@ -51,10 +52,13 @@
 					r = space.id + '-result';
 				var result = document.getElementById(r);
 				slider = noUiSlider.create(slider, config)
+				slider.result = result;
 				sliders.push(slider);
+				/*
 				slider.on('update', function(values, handle) {
 					result.innerHTML = values[handle];
 				});
+				*/
 			};
 
 			/** Getting and showing values of sliders */
@@ -70,14 +74,10 @@
 				results = container.getElementsByClassName('results')[0],
 				submit = container.getElementsByClassName('submit')[0];
 
-			if (typeof submit !== 'undefined') {
-				submit.addEventListener('click', chooseValues);
-			}
+			submit.addEventListener('click', chooseValues);
 
 			/** Slider1 init */
 			createSlider('Slider1', {
-				orientation: 'vertical',
-				direction: 'rtl',
 				start: 15,
 				step: 5,
 				range: {
@@ -105,8 +105,6 @@
 
 			/** Slider2 init */
 			createSlider('Slider2', {
-				orientation: 'vertical',
-				direction: 'rtl',
 				start: 20,
 				step: 5,
 				range: {
@@ -134,8 +132,6 @@
 
 			/** Slider3 init */
 			createSlider('Slider3', {
-				orientation: 'vertical',
-				direction: 'rtl',
 				start: 0,
 				step: 0.5,
 				range: {
@@ -162,8 +158,6 @@
 
 			/** Slider4 init */
 			createSlider('Slider4', {
-				orientation: 'vertical',
-				direction: 'rtl',
 				start: 8,
 				step: 2,
 				range: {

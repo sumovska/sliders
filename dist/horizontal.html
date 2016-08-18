@@ -36,9 +36,7 @@
 		</div>
 
 		<div class="clearfix"></div>
-		<button class="submit" type="submit">Choose the values</button>
-
-		<div class="results">
+		<div class="results visible">
 			<p>Variable1 chosen is : <span id="Slider1-result" class="value"></span></p>
 			<p>Variable2 chosen is : <span id="Slider2-result" class="value"></span></p>
 			<p>Variable3 chosen is : <span id="Slider3-result" class="value"></span></p>
@@ -53,18 +51,17 @@
 					r = space.id + '-result';
 				var result = document.getElementById(r);
 				slider = noUiSlider.create(slider, config)
+				sliders.push(slider);
 				slider.on('update', function(values, handle) {
 					result.innerHTML = values[handle];
 				});
-				sliders.push(slider);
 			};
 
 			/** Getting and showing values of sliders */
 			function chooseValues() {
 				results.classList.add('visible');
 				sliders.forEach(function(entry) {
-					console.log(index);
-					document.getElementById()
+					entry.result.innerHTML = entry.get();
 				});
 			}
 
@@ -73,7 +70,9 @@
 				results = container.getElementsByClassName('results')[0],
 				submit = container.getElementsByClassName('submit')[0];
 
-			submit.addEventListener('click', chooseValues);
+			if (typeof submit !== 'undefined') {
+				submit.addEventListener('click', chooseValues);
+			}
 
 			/** Slider1 init */
 			createSlider('Slider1', {
