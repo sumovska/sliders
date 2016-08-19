@@ -224,7 +224,7 @@ module.exports = function(grunt) {
                     require('postcss-focus'),
                     require('postcss-flexbugs-fixes'),
                     require('autoprefixer')({
-                        browsers: ['> 0.75%', 'last 5 versions', 'ie > 7']
+                        browsers: ['> 0.5%', 'last 7 versions', 'ie > 7']
                     }),
                     require('css-mqpacker')({
                         sort: true
@@ -411,7 +411,7 @@ module.exports = function(grunt) {
 
     // Grunt tasks
     grunt.registerTask("default", ["clean:all", "start", "watch"]);
-    grunt.registerTask("start", ["static:start", /*"img:start", "svg:start", */ "css:start", "js:start", /* "favicon:process",*/ "clean:temp"]);
+    grunt.registerTask("start", ["static:start", /*"img:start", "svg:start", */ "css:start", "js:start", /* "favicon:process", "clean:temp"*/]);
 
     grunt.registerTask("static", ["static:start"]);
     grunt.registerTask("static:start", ["copy:static"]);
