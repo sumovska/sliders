@@ -37,8 +37,16 @@
 
         <br>
         <br>
-        <div id="Volume" class="slider-space">
-            <label class="for">Volume:</label>
+        <div id="Slider5" class="slider-space">
+            <label class="for">Variable5:</label>
+            <div class="slider"></div>
+        </div>
+        <div id="Slider6" class="slider-space">
+            <label class="for">Variable6:</label>
+            <div class="slider"></div>
+        </div>
+        <div id="Slider7" class="slider-space">
+            <label class="for">Variable7:</label>
             <div class="slider"></div>
         </div>
 
@@ -48,7 +56,9 @@
             <p>Variable2 chosen is : <span id="Slider2-result" class="value"></span></p>
             <p>Variable3 chosen is : <span id="Slider3-result" class="value"></span></p>
             <p>Variable4 chosen is : <span id="Slider4-result" class="value"></span></p>
-            <p>Volume chosen is : <span id="Volume-result" class="value"></span></p>
+            <p>Variable5 chosen is : <span id="Slider5-result" class="value"></span></p>
+            <p>Variable6 chosen is : <span id="Slider6-result" class="value"></span></p>
+            <p>Variable7 chosen is : <span id="Slider7-result" class="value"></span></p>
         </div>
 
         <script>
@@ -63,7 +73,7 @@
                 slider.on('update', function (values, handle) {
                     result.innerHTML = values[handle];
                 });
-            };
+            }
 
             /** Getting and showing values of sliders */
             function chooseValues() {
@@ -189,29 +199,93 @@
                 }
             });
 
-            /** Volume init */
-            createSlider('Volume', {
-                start: 1,
+            /** Slider5 init */
+            Slider5values = ['off', 'on'];
+            createSlider('Slider5', {
+                start: 0,
+                step: 1,
+                range: {
+                    'min': 0,
+                    'max': 1
+                },
+                format: {
+                    to: function (value) {
+                        return Slider5values[+value];
+                    },
+                    from: function (value) {
+                    }
+                },
+                pips: {
+                    mode: 'values',
+                    density: 100,
+                    values: [0, 1],
+                    format: {
+                        to: function (value) {
+                            return Slider5values[+value];
+                        },
+                        from: function (value) {
+                        }
+                    }
+                }
+            });
+
+            /** Slider6 init */
+            Slider6values = ['low', 'medium', 'high'];
+            createSlider('Slider6', {
+                start: 0,
+                step: 1,
                 range: {
                     'min': 0,
                     'max': 2
                 },
-                format: wNumb({
-                    decimals: 2,
-                    postfix: 'm<sup>3</sup>'
-                }),
-                tooltips: [wNumb({
-                    decimals: 2,
-                    postfix: 'm<sup>3</sup>'
-                })],
+                format: {
+                    to: function (value) {
+                        return Slider6values[+value];
+                    },
+                    from: function (value) {
+                    }
+                },
                 pips: {
                     mode: 'values',
-                    density: 10,
-                    values: [0, 2],
-                    format: wNumb({
-                        decimals: 2,
-                        postfix: 'm<sup>3</sup>'
-                    })
+                    density: 100,
+                    values: [0, 1, 2],
+                    format: {
+                        to: function (value) {
+                            return Slider6values[+value];
+                        },
+                        from: function (value) {
+                        }
+                    }
+                }
+            });
+
+            /** Slider7 init */
+            Slider7values = ["tiny", "small", "medium", "big", "huge"];
+            createSlider('Slider7', {
+                start: 0,
+                step: 1,
+                range: {
+                    'min': 0,
+                    'max': 4
+                },
+                format: {
+                    to: function (value) {
+                        return Slider7values[+value];
+                    },
+                    from: function (value) {
+                    }
+                },
+                pips: {
+                    mode: 'values',
+                    density: 100,
+                    values: [0, 1, 2, 3, 4],
+                    format: {
+                        to: function (value) {
+                            return Slider7values[+value];
+                        },
+                        from: function (value) {
+                        }
+                    }
                 }
             });
         </script>
