@@ -15,57 +15,74 @@
 <body>
 
     <div class="sliders">
-        <div id="Slider1" class="slider-space">
-            <label class="for">Variable1:</label>
-            <div class="slider"></div>
+
+        <h3 class="title">Numerical</h3>
+        <div class="cell">
+            <div id="Slider1" class="slider-space w50">
+                <label class="for">Timing:</label>
+                <div class="slider"></div>
+                <div class="results visible">
+                    <p>Timing chosen is : <span id="Slider1-result" class="value"></span></p>
+                </div>
+            </div>
+            <div id="Slider2" class="slider-space w50">
+                <label class="for">Temperature:</label>
+                <div class="slider"></div>
+                <div class="results visible">
+                    <p>Temperature chosen is : <span id="Slider2-result" class="value"></span></p>
+                </div>
+            </div>
+            <div id="Slider3" class="slider-space w50">
+                <label class="for">Amount:</label>
+                <div class="slider"></div>
+                <div class="results visible">
+                    <p>Amount chosen is : <span id="Slider3-result" class="value"></span></p>
+                </div>
+            </div>
+            <div id="Slider4" class="slider-space w50">
+                <label class="for">Length:</label>
+                <div class="slider"></div>
+                <div class="results visible">
+                    <p>Length chosen is : <span id="Slider4-result" class="value"></span></p>
+                </div>
+            </div>
         </div>
 
-        <div id="Slider2" class="slider-space">
-            <label class="for">Variable2:</label>
-            <div class="slider"></div>
+        <h3 class="title">Literal</h3>
+        <div class="cell">
+            <div id="Slider5" class="slider-space w50">
+                <label class="for">Status:</label>
+                <div class="slider" style="max-width:35px;"></div>
+                <div class="results visible">
+                    <p>Status chosen is : <span id="Slider5-result" class="value"></span></p>
+                </div>
+            </div>
+            <div id="Slider6" class="slider-space w50">
+                <label class="for">Volume:</label>
+                <div class="slider"></div>
+                <div class="results visible">
+                    <p>Volume chosen is : <span id="Slider6-result" class="value"></span></p>
+                </div>
+            </div>
+            <div id="Slider7" class="slider-space w50">
+                <label class="for">Size:</label>
+                <div class="slider"></div>
+                <div class="results visible">
+                    <p>Size chosen is : <span id="Slider7-result" class="value"></span></p>
+                </div>
+            </div>
         </div>
 
-        <div id="Slider3" class="slider-space">
-            <label class="for">Variable3:</label>
-            <div class="slider"></div>
+        <h3 class="title">Non-fixed numerical</h3>
+        <div class="cell">
+            <div id="Slider9" class="slider-space w50">
+                <label class="for">Rating:</label>
+                <div class="slider"></div>
+                <div class="results visible">
+                    <p>Rating chosen is : <span id="Slider9-result" class="value"></span></p>
+                </div>
+            </div>
         </div>
-
-        <div id="Slider4" class="slider-space">
-            <label class="for">Variable4:</label>
-            <div class="slider"></div>
-        </div>
-
-        <div class="clearfix"></div>
-        <div class="results visible">
-            <p>Variable1 chosen is : <span id="Slider1-result" class="value"></span></p>
-            <p>Variable2 chosen is : <span id="Slider2-result" class="value"></span></p>
-            <p>Variable3 chosen is : <span id="Slider3-result" class="value"></span></p>
-            <p>Variable4 chosen is : <span id="Slider4-result" class="value"></span></p>
-        </div>
-        <br>
-        <br>
-
-        <div id="Slider5" class="slider-space">
-            <label class="for">Variable5:</label>
-            <div class="slider" style="max-width:35px;"></div>
-        </div>
-        <div id="Slider6" class="slider-space">
-            <label class="for">Variable6:</label>
-            <div class="slider" style="max-width:225px;"></div>
-        </div>
-        <div id="Slider7" class="slider-space">
-            <label class="for">Variable7:</label>
-            <div class="slider"></div>
-        </div>
-
-        <div class="clearfix"></div>
-        <div class="results visible">
-            <p>Variable5 chosen is : <span id="Slider5-result" class="value"></span></p>
-            <p>Variable6 chosen is : <span id="Slider6-result" class="value"></span></p>
-            <p>Variable7 chosen is : <span id="Slider7-result" class="value"></span></p>
-        </div>
-        <br>
-        <br>
 
         <script>
             /** Slider creation function (slider id, noUIslider configration) */
@@ -303,6 +320,15 @@
                             return value;
                         }
                     }
+                }
+            });
+
+            /** Slider9 init */
+            createSlider('Slider9', {
+                start: [0.01],
+                range: {
+                    'min': [0.01],
+                    'max': [2]
                 }
             });
         </script>
