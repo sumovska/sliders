@@ -82,6 +82,13 @@
                     <p>Rating chosen is : <span id="Slider9-result" class="value"></span></p>
                 </div>
             </div>
+            <div id="Slider10" class="slider-space w50">
+                <label class="for">Percent:</label>
+                <div class="slider"></div>
+                <div class="results visible">
+                    <p>Percent chosen is : <span id="Slider10-result" class="value"></span></p>
+                </div>
+            </div>
         </div>
 
         <script>
@@ -329,6 +336,36 @@
                 range: {
                     'min': [0.01],
                     'max': [2]
+                },
+                pips: {
+                    mode: 'values',
+                    density: 25,
+                    values: [0.01, 1, 2],
+                    format: wNumb({
+                        decimals: 2
+                    })
+                }
+            });
+
+            /** Slider10 init */
+            createSlider('Slider10', {
+                start: 0,
+                step: 1,
+                format: wNumb({
+                    decimals: 0,
+                    postfix: '%'
+                }),
+                range: {
+                    'min': [0],
+                    'max': [100]
+                },
+                pips: {
+                    mode: 'values',
+                    density: 50,
+                    values: [0, 50, 100],
+                    format: wNumb({
+                        decimals: 0
+                    })
                 }
             });
         </script>
