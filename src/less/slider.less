@@ -136,7 +136,7 @@ html, body {
                         }
                         .noUi-tooltip {
                             opacity: 1;
-                            transform: scale(1);
+                            transform: scale(1) translate3d(-50%, 0, 0);
                         }
                     }
 
@@ -145,7 +145,6 @@ html, body {
                     }
 
                     &:before {
-                        opacity: 1;
                         width: auto;
                         height: auto;
                         border-radius: 50%;
@@ -164,13 +163,12 @@ html, body {
                 }
 
                 &-tooltip {
-                    min-width: 50px;
-                    padding: 4px 5px;
+                    min-width: 40px;
+                    padding: 4px 8px;
                     border: none;
                     border-radius: 8px;
                     position: absolute;
-                    left: -10px;
-                    right: -10px;
+                    left: 50%;
                     font-weight: 100;
                     font-size: 13px;
                     line-height: 18px;
@@ -181,7 +179,7 @@ html, body {
                     cursor: default;
                     user-select: none;
                     transition: opacity @duration, transform @duration;
-                    transform: scale(.85);
+                    transform: scale(.85) translate3d(-50%, 0, 0);
                     transform-origin: center bottom;
                     opacity: 0;
 
