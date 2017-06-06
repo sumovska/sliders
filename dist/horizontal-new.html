@@ -22,28 +22,28 @@
                 <label class="for">Timing:</label>
                 <div class="slider"></div>
                 <div class="results visible">
-                    <p>Timing chosen is : <span id="Slider1-result" class="value"></span></p>
+                    <p>Timing chosen is: <span id="Slider1-result" class="value"></span></p>
                 </div>
             </div>
             <div id="Slider2" class="slider-space w50">
                 <label class="for">Temperature:</label>
                 <div class="slider"></div>
                 <div class="results visible">
-                    <p>Temperature chosen is : <span id="Slider2-result" class="value"></span></p>
+                    <p>Temperature chosen is: <span id="Slider2-result" class="value"></span></p>
                 </div>
             </div>
             <div id="Slider3" class="slider-space w50">
                 <label class="for">Amount:</label>
                 <div class="slider"></div>
                 <div class="results visible">
-                    <p>Amount chosen is : <span id="Slider3-result" class="value"></span></p>
+                    <p>Amount chosen is: <span id="Slider3-result" class="value"></span></p>
                 </div>
             </div>
             <div id="Slider4" class="slider-space w50">
                 <label class="for">Length:</label>
                 <div class="slider"></div>
                 <div class="results visible">
-                    <p>Length chosen is : <span id="Slider4-result" class="value"></span></p>
+                    <p>Length chosen is: <span id="Slider4-result" class="value"></span></p>
                 </div>
             </div>
         </div>
@@ -52,23 +52,23 @@
         <div class="cell">
             <div id="Slider5" class="slider-space w50">
                 <label class="for">Status:</label>
-                <div class="slider" style="max-width:35px;"></div>
+                <div class="slider" style="max-width:55px;"></div>
                 <div class="results visible">
-                    <p>Status chosen is : <span id="Slider5-result" class="value"></span></p>
+                    <p>Status chosen is: <span id="Slider5-result" class="value"></span></p>
                 </div>
             </div>
             <div id="Slider6" class="slider-space w50">
                 <label class="for">Volume:</label>
                 <div class="slider"></div>
                 <div class="results visible">
-                    <p>Volume chosen is : <span id="Slider6-result" class="value"></span></p>
+                    <p>Volume chosen is: <span id="Slider6-result" class="value"></span></p>
                 </div>
             </div>
             <div id="Slider7" class="slider-space w50">
                 <label class="for">Size:</label>
                 <div class="slider"></div>
                 <div class="results visible">
-                    <p>Size chosen is : <span id="Slider7-result" class="value"></span></p>
+                    <p>Size chosen is: <span id="Slider7-result" class="value"></span></p>
                 </div>
             </div>
         </div>
@@ -79,14 +79,14 @@
                 <label class="for">Rating:</label>
                 <div class="slider"></div>
                 <div class="results visible">
-                    <p>Rating chosen is : <span id="Slider9-result" class="value"></span></p>
+                    <p>Rating chosen is: <span id="Slider9-result" class="value"></span></p>
                 </div>
             </div>
             <div id="Slider10" class="slider-space w50">
-                <label class="for">Percent:</label>
+                <label class="for">Mass:</label>
                 <div class="slider"></div>
                 <div class="results visible">
-                    <p>Percent chosen is : <span id="Slider10-result" class="value"></span></p>
+                    <p>Mass chosen is: <span id="Slider10-result" class="value"></span></p>
                 </div>
             </div>
         </div>
@@ -334,16 +334,37 @@
             createSlider('Slider9', {
                 start: [0.01],
                 range: {
-                    'min': [0.01],
-                    'max': [2]
+                    'min': [0.0101, 0.09],
+                    '11%': [0.1, 0.9],
+                    '22%': [1, 0.5],
+                    '33%': [1.5, 0.3],
+                    '44%': [1.8, 0.2],
+                    '55%': [2, 0.5],
+                    '66%': [2.5, 0.5],
+                    '77%': [3, 2],
+                    '88%': [5, 5],
+                    'max': [10]
                 },
+                format: {
+                    to: function (value) {
+                        var a = parseFloat(value).toFixed(2);
+                        return parseFloat(a);
+                    },
+                    from: function (value) {
+                        return value;
+                    }
+                },
+                tooltips: [wNumb({
+                    encoder: function (value) {
+                        var a = parseFloat(value).toFixed(2);
+                        return parseFloat(a);
+                    }
+                })],
                 pips: {
                     mode: 'values',
-                    density: 25,
-                    values: [0.01, 1, 2],
-                    format: wNumb({
-                        decimals: 2
-                    })
+                    density: 11,
+                    values: [0.01, 1.5, 2.5, 10],
+                    format: wNumb({})
                 }
             });
 
@@ -352,13 +373,16 @@
                 start: 0,
                 step: 1,
                 format: wNumb({
-                    decimals: 0,
-                    postfix: '%'
+                    decimals: 0
                 }),
                 range: {
                     'min': [0],
                     'max': [100]
                 },
+                tooltips: [wNumb({
+                    decimals: 0,
+                    postfix: ' kg/kg'
+                })],
                 pips: {
                     mode: 'values',
                     density: 50,
