@@ -65,7 +65,8 @@
         </div>
 
         <div class="clearfix"></div>
-        <div class="results visible">
+        <button class="submit" type="submit">Choose the values</button>
+        <div class="results">
             <p>var1 chosen is: <span id="Slider1-result" class="value"></span></p>
             <p>var2 chosen is: <span id="Slider2-result" class="value"></span></p>
             <p>var3 chosen is: <span id="Slider3-result" class="value"></span></p>
@@ -73,7 +74,7 @@
             <p>var5 chosen is: <span id="Slider5-result" class="value"></span></p>
             <p>var6 chosen is: <span id="Slider6-result" class="value"></span></p>
             <p>var7 chosen is: <span id="Slider7-result" class="value"></span></p>
-            <p>var8 chosen is: <span id="Slider8-result" class="value"></span></p>
+            <p>var9 chosen is: <span id="Slider8-result" class="value"></span></p>
             <p>var9 chosen is: <span id="Slider9-result" class="value"></span></p>
         </div>
 
@@ -86,24 +87,25 @@
                         r = space.id + '-result';
                 var result = document.getElementById(r);
                 slider = noUiSlider.create(slider, config);
+                slider.id = id;
+                slider.result = result;
                 sliders.push(slider);
                 slider.on('update', function (values, handle) {
-                    result.innerHTML = values[handle];
                     var v = id.replace('Slider', 'var');
                     window[v] = values[handle];
                     SliderOnUpdate(id, v, values[handle]);
-
                 });
-                var handle = space.getElementsByClassName('noUi-handle-lower')[0];
-                handle.click();
             }
 
             /** Getting and showing values of sliders */
             function chooseValues() {
                 results.classList.add('visible');
                 sliders.forEach(function (entry) {
-                    entry.result.innerHTML = entry.get();
-                    window[entry.id.replace('Slider', 'var')] = entry.get();
+                    var vl = entry.get();
+                    entry.result.innerHTML = vl;
+                    var v = entry.id.replace('Slider', 'var');
+                    window[v] = vl;
+                    SliderOnUpdate(entry.id, v, vl);
                 });
             }
 
@@ -112,9 +114,7 @@
                     results = container.getElementsByClassName('results')[0],
                     submit = container.getElementsByClassName('submit')[0];
 
-            if (typeof submit !== 'undefined') {
-                submit.addEventListener('click', chooseValues);
-            }
+            submit.addEventListener('click', chooseValues);
 
             /** Slider1 init */
             createSlider('Slider1', {
@@ -386,7 +386,6 @@
                     })
                 }
             });
-
 
             //Function fires on slider update
             function SliderOnUpdate(id, vr, vl) {

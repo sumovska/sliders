@@ -44,7 +44,7 @@ body {
           user-select: none;
 }
 .sliders .slider-space .for {
-  min-width: 70px;
+  min-width: 85px;
   margin-right: 20px;
   font: 14px Helvetica, sans-serif;
   color: #333;
@@ -350,6 +350,9 @@ body {
 }
 .sliders .results .value {
   color: red;
+}
+.hidden {
+  display: none !important;
 }
 @media (min-width: 750px) {
   .sliders {
