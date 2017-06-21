@@ -277,6 +277,7 @@ body {
 .sliders .slider .noUi-value-horizontal {
   -webkit-transform: translate3d(-50%, 5px, 0);
           transform: translate3d(-50%, 5px, 0);
+  white-space: nowrap;
 }
 .sliders .slider .noUi-value-horizontal.noUi-value-sub {
   display: none;

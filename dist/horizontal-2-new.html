@@ -290,13 +290,13 @@
             });
 
             /** Slider7 init */
-            Slider7values = ["tiny", "small", "medium", "big", "huge"];
+            Slider7values = ["medium", "huge", "very huge", "very very huge"];
             createSlider('Slider7', {
                 start: 0,
                 step: 1,
                 range: {
                     'min': 0,
-                    'max': 4
+                    'max': 3
                 },
                 format: {
                     to: function (value) {
@@ -310,7 +310,7 @@
                 pips: {
                     mode: 'values',
                     density: 100,
-                    values: [0, 1, 2, 3, 4],
+                    values: [0, 1, 2, 3],
                     format: {
                         to: function (value) {
                             return Slider7values[+value];
@@ -390,14 +390,20 @@
             //Function fires on slider update
             function SliderOnUpdate(id, vr, vl) {
                 if (vr === 'var5') {
-                    var slider6 = document.getElementById('Slider6');
-                    var slider7 = document.getElementById('Slider7');
-                    if (vl === 'on') {
-                        slider6.classList.remove('hidden');
-                        slider7.classList.add('hidden');
-                    } else {
-                        slider6.classList.add('hidden');
-                        slider7.classList.remove('hidden');
+                    var slider6 = document.getElementById('Slider6'),
+                            slider7 = document.getElementById('Slider7'),
+                            slider6s = document.querySelector('#Slider6 .slider'),
+                            slider7s = document.querySelector('#Slider7 .slider');
+                    if (typeof slider7s.noUiSlider !== 'undefined') {
+                        if (vl === 'on') {
+                            slider6.classList.remove('hidden');
+                            slider7s.noUiSlider.set(slider7s.noUiSlider.options.start);
+                            slider7.classList.add('hidden');
+                        } else {
+                            slider7.classList.remove('hidden');
+                            slider6s.noUiSlider.set(slider6s.noUiSlider.options.start);
+                            slider6.classList.add('hidden');
+                        }
                     }
                 }
             }
